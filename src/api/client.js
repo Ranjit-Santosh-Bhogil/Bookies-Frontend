@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const API_BASE = "https://bookies-backend-wem2.onrender.com";
 
 export const getToken = () => localStorage.getItem("token");
 export const setToken = (token) => {
