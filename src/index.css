@@ -61,3 +61,8 @@
 .badge-available { background: #d1fae5; color: #065f46; }
 .badge-requested { background: #fef3c7; color: #92400e; }
 .badge-exchanged { background: #e0e7ff; color: #3730a3; }
+
+.btn-primary {
+  @apply bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition;
+}
+

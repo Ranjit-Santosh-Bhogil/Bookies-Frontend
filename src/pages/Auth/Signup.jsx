@@ -114,7 +114,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl btn-primary disabled:opacity-60 disabled:transform-none"
+            className="w-full py-3 rounded-xl btn-primary disabled:opacity-60 "
           >
             {loading ? "Creating account..." : "Sign up"}
           </button>
