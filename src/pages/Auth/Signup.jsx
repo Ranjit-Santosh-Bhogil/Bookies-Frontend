@@ -48,12 +48,15 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-app-alt flex items-center justify-center p-4">
-      <div className="w-full max-w-md rounded-2xl card-gradient border border-indigo-200/80 shadow-2xl shadow-indigo-500/10 p-8">
+      <div className="w-full max-w-md rounded-2xl card-gradient p-8">
         <div className="text-center mb-8">
-          <h1 className="vintage-font text-3xl font-bold bg-gradient-to-r from-indigo-600 via-pink-500 to-amber-500 bg-clip-text text-transparent">
-            Bookies
+          <p className="chapter-title mb-2">New Reader</p>
+          <h1 className="vintage-font text-3xl font-semibold text-stone-900 tracking-wide">
+            Create Account
           </h1>
-          <p className="text-sm text-indigo-600/80 mt-1">Create an account (registered universities only)</p>
+          <p className="text-sm text-stone-700/90 mt-3 italic">
+            Create an account to add your name to the ledger.
+          </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
@@ -62,31 +65,37 @@ const Signup = () => {
             </div>
           )}
           <div>
-            <label className="block text-sm font-semibold text-indigo-900 mb-1">Name</label>
+            <label className="block text-sm font-semibold text-stone-900 mb-1">
+              Name
+            </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2.5 border-2 border-indigo-200 rounded-xl bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+              className="w-full px-4 py-2.5 border border-amber-300 rounded-xl bg-[#fdf7ea] focus:border-amber-700 focus:ring-1 focus:ring-amber-600/70 outline-none transition shadow-sm"
               placeholder="Your name"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-indigo-900 mb-1">Email</label>
+            <label className="block text-sm font-semibold text-stone-900 mb-1">
+              Email
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 border-2 border-indigo-200 rounded-xl bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+              className="w-full px-4 py-2.5 border border-amber-300 rounded-xl bg-[#fdf7ea] focus:border-amber-700 focus:ring-1 focus:ring-amber-600/70 outline-none transition shadow-sm"
               placeholder="you@university.edu"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-indigo-900 mb-1">University</label>
+            <label className="block text-sm font-semibold text-stone-900 mb-1">
+              University
+            </label>
             <select
               value={university}
               onChange={(e) => setUniversity(e.target.value)}
-              className="w-full px-4 py-2.5 border-2 border-indigo-200 rounded-xl bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+              className="w-full px-4 py-2.5 border border-amber-300 rounded-xl bg-[#fdf7ea] focus:border-amber-700 focus:ring-1 focus:ring-amber-600/70 outline-none transition shadow-sm"
               required
             >
               <option value="">Select your university</option>
@@ -97,16 +106,20 @@ const Signup = () => {
               ))}
             </select>
             {universities.length === 0 && (
-              <p className="text-xs text-amber-700 mt-1">Loading universities... Add some via admin if empty.</p>
+              <p className="text-xs text-amber-700 mt-1">
+                Loading universities... Add some via admin if empty.
+              </p>
             )}
           </div>
           <div>
-            <label className="block text-sm font-semibold text-indigo-900 mb-1">Password</label>
+            <label className="block text-sm font-semibold text-stone-900 mb-1">
+              Password
+            </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 border-2 border-indigo-200 rounded-xl bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
+              className="w-full px-4 py-2.5 border border-amber-300 rounded-xl bg-[#fdf7ea] focus:border-amber-700 focus:ring-1 focus:ring-amber-600/70 outline-none transition shadow-sm"
               placeholder="Min 6 characters"
               minLength={6}
             />
@@ -114,14 +127,18 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl btn-primary disabled:opacity-60 "
+            className="w-full btn-primary disabled:opacity-60"
           >
             {loading ? "Creating account..." : "Sign up"}
           </button>
         </form>
-        <p className="mt-6 text-center text-sm text-indigo-600/80">
+        <div className="ink-divider" />
+        <p className="mt-4 text-center text-sm text-stone-700/90">
           Already have an account?{" "}
-          <Link to="/login" className="font-semibold text-pink-600 hover:text-pink-500 transition">
+          <Link
+            to="/login"
+            className="font-semibold text-amber-800 hover:text-amber-700 underline underline-offset-4 decoration-amber-500/70"
+          >
             Sign in
           </Link>
         </p>

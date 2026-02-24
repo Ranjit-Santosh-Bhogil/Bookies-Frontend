@@ -1,68 +1,302 @@
 @import "tailwindcss";
 
+/* Classic book-inspired theme */
+
+:root {
+  --paper-bg: #f5e6c8;
+  --paper-bg-alt: #efe2c5;
+  --paper-card: #f9f3e5;
+  --paper-edge: #e2d3b0;
+  --ink-main: #3b2f2f;
+  --ink-muted: #6b5b4d;
+  --ink-accent: #8b6b4a;
+  --border-soft: #d5c7aa;
+  --shadow-soft: 0 2px 6px rgba(33, 21, 10, 0.14);
+}
+
+/* Global typography */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--paper-bg);
+  color: var(--ink-main);
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 .vintage-font {
-  font-family: "DM Sans", system-ui, sans-serif;
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
 }
 
-/* Colourful theme utilities */
+/* Page backgrounds */
+
 .bg-app {
-  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 50%, #fef3c7 100%);
+  background-color: var(--paper-bg);
 }
 
 .bg-app-alt {
-  background: linear-gradient(160deg, #f0f4ff 0%, #fdf2f8 40%, #fffbeb 100%);
+  background-color: var(--paper-bg-alt);
 }
+
+/* Card + shell */
 
 .card-gradient {
-  background: linear-gradient(145deg, #ffffff 0%, #faf5ff 100%);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+  background-color: var(--paper-card);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
 }
 
+.book-shell {
+  background-color: var(--paper-card);
+  border-radius: 1.5rem;
+  border: 1px solid var(--paper-edge);
+  box-shadow: var(--shadow-soft);
+}
+
+.book-main {
+  background-color: transparent;
+}
+
+/* Top navigation */
+
+.top-nav {
+  background-color: #f5e6c8;
+  border-bottom: 1px solid rgba(75, 46, 30, 0.6);
+}
+
+.nav-link {
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.25rem;
+  color: #4b2e1e;
+  opacity: 0.8;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  margin-inline: auto;
+  width: 2.25rem;
+  height: 1px;
+  background-color: rgba(75, 46, 30, 0.7);
+  opacity: 0;
+  transform: scaleX(0.85);
+  transition: opacity 150ms ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  opacity: 0.8;
+}
+
+.nav-link-active {
+  opacity: 1;
+}
+
+.nav-link-active::after {
+  opacity: 1;
+}
+
+/* Buttons */
+
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  color: white;
+  background-color: var(--paper-card);
+  color: var(--ink-main);
+  border-radius: 9999px;
+  border: 1px solid var(--ink-accent);
   font-weight: 600;
-  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 0 rgba(0, 0, 0, 0.18);
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
+
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  background-color: #efe2c7;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.12);
+  transform: translateY(1px);
 }
 
-.badge-available { background: #d1fae5; color: #065f46; }
-.badge-requested { background: #fef3c7; color: #92400e; }
-.badge-exchanged { background: #e0e7ff; color: #3730a3; }
-
-/* Colourful gradient backgrounds */
-.bg-app {
-  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 50%, #fef3c7 100%);
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
-.bg-app-alt {
-  background: linear-gradient(160deg, #f0f4ff 0%, #fdf2f8 40%, #fffbeb 100%);
+/* Badges */
+
+.badge-available {
+  background-color: #e3eddc;
+  color: #445331;
+  border: 1px solid rgba(68, 83, 49, 0.35);
 }
 
-.card-gradient {
-  background: linear-gradient(145deg, #ffffff 0%, #faf5ff 100%);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+.badge-requested {
+  background-color: #f2e0b8;
+  color: #6b4b21;
+  border: 1px solid rgba(107, 75, 33, 0.35);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: white;
+.badge-exchanged {
+  background-color: #e3d6c4;
+  color: #4c3726;
+  border: 1px solid rgba(76, 55, 38, 0.35);
+}
+
+.badge-available,
+.badge-requested,
+.badge-exchanged {
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Book cards */
+
+.book-card {
+  border-radius: 0.9rem;
+  background-color: #e6d3b3;
+  border: 1px solid rgba(124, 96, 46, 0.3);
+  box-shadow: 0 1px 2px rgba(33, 21, 10, 0.12);
+  overflow: hidden;
+  transition: box-shadow 160ms ease;
+}
+
+.book-card:hover {
+  box-shadow: 0 2px 4px rgba(33, 21, 10, 0.16);
+}
+
+.book-card-image {
+  position: relative;
+  height: 13rem;
+  background-color: #dcc6a3;
+  overflow: hidden;
+}
+
+.book-card-body {
+  padding: 0.75rem 0.9rem 0.85rem;
+  background-color: #dcc6a3;
+}
+
+.book-card-title {
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  color: #4b2e1e;
 }
 
-.badge-available { background: #d1fae5; color: #065f46; }
-.badge-requested { background: #fef3c7; color: #92400e; }
-.badge-exchanged { background: #e0e7ff; color: #3730a3; }
-
-.btn-primary {
-  @apply bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition;
+.book-card-author {
+  font-size: 0.75rem;
+  color: rgba(75, 46, 30, 0.78);
 }
 
+.book-card-owner {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.55rem;
+  background-color: #4b2e1e;
+  color: #f5e6c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* Chapter-like headings */
+
+.chapter-title {
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.chapter-heading {
+  font-family: "EB Garamond", "Baskerville", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Ink-style dividers and borders */
+
+.ink-divider {
+  position: relative;
+  height: 1px;
+  margin: 1.5rem 0;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.35),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+.ink-divider::before,
+.ink-divider::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 9999px;
+  background-color: var(--paper-card);
+}
+
+.ink-divider::before {
+  left: 0;
+}
+
+.ink-divider::after {
+  right: 0;
+}
+
+.book-border {
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Page spacing */
+
+.page-shell {
+  padding: 2.5rem 2.25rem;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 1.75rem 1.5rem;
+  }
+}

@@ -4,16 +4,21 @@ import { useAuth } from "../../context/AuthContext";
 
 const Sidebar = () => {
   const { isLoggedIn } = useAuth();
-  const linkBase = "w-full flex flex-col items-center justify-center gap-1 py-3 rounded-xl transition-all duration-200";
-  const activeStyle = "bg-indigo-500 text-white shadow-lg shadow-indigo-500/30";
-  const hoverStyle = "hover:bg-indigo-100 hover:text-indigo-700 text-indigo-800";
+  const linkBase =
+    "w-full flex flex-col items-center justify-center gap-1 py-3 rounded-xl transition-colors duration-150 text-[11px] tracking-[0.18em] uppercase";
+  const activeStyle =
+    "bg-amber-200/80 text-stone-900 shadow-inner border border-amber-500/70";
+  const hoverStyle =
+    "hover:bg-amber-100 hover:text-stone-900 text-stone-700";
 
   return (
-    <aside className="w-24 flex-shrink-0 bg-gradient-to-b from-indigo-100 to-pink-50 border-r-2 border-gray-300 flex flex-col h-full rounded-l-2xl overflow-hidden">
+    <aside className="w-24 flex-shrink-0 bg-amber-50/80 border-r border-amber-200/80 flex flex-col h-full rounded-l-2xl overflow-hidden">
 
       <div className="flex-shrink-0 pt-4 pb-2 flex justify-center">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-          <span className="vintage-font text-xl font-bold text-white">B</span>
+        <div className="w-12 h-12 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center shadow-sm">
+          <span className="vintage-font text-xl font-semibold text-stone-800">
+            B
+          </span>
         </div>
       </div>
 
